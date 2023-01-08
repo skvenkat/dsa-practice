@@ -11,3 +11,21 @@ def is_palindrome(s):
       return False
 
   return True
+
+
+def find_sum_of_three(nums, target):
+   # using inbuilt sort function
+   nums.sort()
+   n = len(nums)
+   for i in range(n-1):
+      lsb = i+1
+      msb = (n - 1)
+      while lsb < msb:
+         sum_of_3 = (nums[i] + nums[lsb] + nums[msb])
+         if sum_of_3 == target:
+            return True
+         elif sum_of_3 > target:
+            msb -= 1
+         else:
+            lsb += 1
+   return False
