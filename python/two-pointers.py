@@ -29,3 +29,31 @@ def find_sum_of_three(nums, target):
          else:
             lsb += 1
    return False
+
+
+def is_palindrome_after_one_skip(s):
+    left = 0
+    right = len(s) - 1
+    mismatch = 0
+    while left <= right:
+      if s[left] == s[right]:
+        left += 1
+        right -= 1
+      elif mismatch < 1:
+        if s[left + 1] == s[right]:
+          left += 2
+          right -= 1
+          mismatch += 1
+        elif s[left] == s[right - 1]:
+          left += 1
+          right -= 2
+          mismatch += 1
+      
+      # there can be either no mismatch or 1 mismatch is tolerable
+      if mismatch < 2:
+        return True
+      else:
+        return False
+
+    return False 
+
