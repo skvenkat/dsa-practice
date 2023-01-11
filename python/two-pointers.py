@@ -69,3 +69,20 @@ def is_happy_number(n):
     return n
 
     return True if down_to_single_digit(n) == 1 else False
+
+  
+## Original Solution to detemine the linked list is cyclic   
+def detect_cycle(head):
+   sp = head
+   fp = head
+   
+   while sp != fp:
+      sp = head.next
+      fp = head.next.next
+
+      print(sp, fp)
+      if sp == fp:
+         return True
+      elif fp.next is None:
+         return False
+   return False
