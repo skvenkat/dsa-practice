@@ -56,17 +56,16 @@ def is_palindrome_after_one_mismatch(s):
         return True
     return False
 
-## Original Solution
-# Dependency for is_happy_number() method
-def down_to_single_digit(n):
-    n = sum([i ** 2 for i in list(map(int, str(n)))])
-    while n > 9:
+## Original Solution (Recursive method)
+def is_happy_number(n):
+    def down_to_single_digit(n):
         n = sum([i ** 2 for i in list(map(int, str(n)))])
-        if n > 9:
-            down_to_single_digit(n)
-        else:
-            return n
+        while n > 9:
+            n = sum([i ** 2 for i in list(map(int, str(n)))])
+            if n > 9:
+                down_to_single_digit(n)
+            else:
+                return n
     return n
 
-def is_happy_number(n):
     return True if down_to_single_digit(n) == 1 else False
