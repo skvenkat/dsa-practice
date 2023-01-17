@@ -30,3 +30,21 @@ def detect_cycle(head):
       elif fp.next is None:
          return False
    return False
+
+from linked_list import LinkedList
+
+## Fixed and optimized solution to determince the linked list is cylic
+def detect_cycle(head):
+   sp = head
+   fp = head
+   
+   while fp and fp.next:
+      sp = sp.next
+      fp = fp.next.next
+
+      print(sp, fp)
+      if sp == fp:
+         return True
+      elif fp.next is None:
+         break
+   return False
