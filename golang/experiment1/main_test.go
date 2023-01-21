@@ -63,7 +63,6 @@ func TestMul(t *testing.T) {
     for _, tt := range mulTestCases {
         testHeader := fmt.Sprintf("Operand1: %d | Operand2: %d", tt.x, tt.y)
         t.Run(testHeader, func(t *testing.T) {
-            if 
             c := Arithmetic{tt.x, tt.y}
             got := c.mul()
             assert.Equal(t, got, tt.want)
